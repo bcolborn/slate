@@ -406,7 +406,6 @@ html, body {
   }
 
   table {
-    border: 1px solid gray;
     margin-bottom: 1em;
     overflow: auto;
     th,td {
@@ -417,7 +416,7 @@ html, body {
 
     th {
       color: white;
-      background-color: #FFFFFF;
+      background-color: #C1C1C1;
       padding: 5px 10px;
       border-bottom: 1px solid #ccc;
       vertical-align: bottom;
@@ -425,6 +424,7 @@ html, body {
 
     td {
       padding: 10px;
+      border: 1px solid gray;
     }
 
     tr:last-child {
