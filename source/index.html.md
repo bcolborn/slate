@@ -27,6 +27,10 @@ This example API documentation page was created with [Slate](https://github.com/
 
 # Authentication
 
+You can create an authorized session to a Nutanix cluster.
+
+<aside class="warning">Do not put your cluster password in plain text inside a script. The code samples are for reference only.</aside>
+
 > To authorize, use this code:
 
 ```python
