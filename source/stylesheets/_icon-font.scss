@@ -1,3 +1,45 @@
+/* Fonts */
+
+@font-face{
+  font-family: 'ProximaNovaSoft';
+  font-weight: 400;
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Regular-webfont.eot');
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Regular-webfont.eot?iefix') format('eot'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Regular-webfont.woff') format('woff'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Regular-webfont.ttf') format('truetype'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Regular-webfont.svg#webfont') format('svg');
+}
+
+@font-face{
+  font-family: 'ProximaNovaSoft';
+  font-weight: 500;
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Medium-webfont.eot');
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Medium-webfont.eot?iefix') format('eot'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Medium-webfont.woff') format('woff'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Medium-webfont.ttf') format('truetype'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Medium-webfont.svg#webfont') format('svg');
+}
+
+@font-face{
+  font-family: 'ProximaNovaSoft';
+  font-weight: 600;
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Semibold-webfont.eot');
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Semibold-webfont.eot?iefix') format('eot'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Semibold-webfont.woff') format('woff'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Semibold-webfont.ttf') format('truetype'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Semibold-webfont.svg#webfont') format('svg');
+}
+
+@font-face{
+  font-family: 'ProximaNovaSoft';
+  font-weight: 700;
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Bold-webfont.eot');
+  src: url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Bold-webfont.eot?iefix') format('eot'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Bold-webfont.woff') format('woff'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Bold-webfont.ttf') format('truetype'),
+  url('http://download.nutanix.com/guides/additional_releases/fonts/ProximaNovaSoft-Bold-webfont.svg#webfont') format('svg');
+}
+
 @font-face {
   font-family: 'slate';
   src:font-url('slate.eot?-syv14m');

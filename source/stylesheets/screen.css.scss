@@ -406,6 +406,7 @@ html, body {
   }
 
   table {
+    border: 1px solid gray;
     margin-bottom: 1em;
     overflow: auto;
     th,td {
@@ -415,6 +416,8 @@ html, body {
     }
 
     th {
+      color: white;
+      background-color: #FFFFFF;
       padding: 5px 10px;
       border-bottom: 1px solid #ccc;
       vertical-align: bottom;
@@ -426,14 +429,6 @@ html, body {
 
     tr:last-child {
       border-bottom: 1px solid #ccc;
-    }
-
-    tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
-    }
-
-    tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
     }
   }
 
