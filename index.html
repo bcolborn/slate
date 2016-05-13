@@ -112,7 +112,6 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -125,13 +124,9 @@
 
 <p>We have language bindings in Shell, Python, and Powershell. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-
 <h1 id="authentication">Authentication</h1>
 
 <p>You can create an authorized session to a Nutanix cluster.</p>
-
-<aside class="warning">Do not put your cluster password in plain text inside a script. The code samples are for reference only.</aside>
 
 <blockquote>
 <p>To authorize, use this code:</p>
@@ -159,18 +154,20 @@ curl <span class="s2">"api_endpoint_here"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre>
 
+<aside class="warning">Do not put your cluster password in plain text inside a script. The code samples are for reference only.</aside>
+
           <h1 id="networks">Networks</h1>
 
-<h2 id="modify-network">Modify network</h2>
+<h2 id="get-details-for-a-network">Get details for a network</h2>
 <pre class="highlight python"><code><span class="n">clusterURL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">+</span> <span class="s">"/networks"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_uuid</span>
 <span class="k">print</span> <span class="s">"Getting cluster information for cluster </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">serverIpAddress</span>
-<span class="n">serverResponse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">clusterURL</span><span class="p">)</span>
+<span class="n">serverResponse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">clusterURL</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">serverResponse</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">serverResponse</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
 
-<h3 id="http-request">HTTP request</h3>
+<h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT /networks/{uuid}</code></p>
+<p><code class="prettyprint">GET /networks/{uuid}</code></p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
@@ -208,16 +205,16 @@ curl <span class="s2">"api_endpoint_here"</span>
 </tr>
 </tbody></table>
 
-<h2 id="get-details-for-a-network">Get details for a network</h2>
+<h2 id="modify-network">Modify network</h2>
 <pre class="highlight python"><code><span class="n">clusterURL</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">+</span> <span class="s">"/networks"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_uuid</span>
 <span class="k">print</span> <span class="s">"Getting cluster information for cluster </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">serverIpAddress</span>
-<span class="n">serverResponse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">clusterURL</span><span class="p">)</span>
+<span class="n">serverResponse</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">clusterURL</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">serverResponse</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">serverResponse</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="http-request">HTTP request</h3>
 
-<p><code class="prettyprint">GET /networks/{uuid}</code></p>
+<p><code class="prettyprint">PUT /networks/{uuid}</code></p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
@@ -301,6 +298,228 @@ curl <span class="s2">"api_endpoint_here"</span>
 <td>Error schema: #/definitions/network_status</td>
 </tr>
 </tbody></table>
+
+          <h1 id="schemas">Schemas</h1>
+
+<h2 id="create-network-request">Create network request</h2>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Request to make a network</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Name</td>
+<td>network</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>object</td>
+</tr>
+</tbody></table>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_version</td>
+<td>string</td>
+<td>*</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>#/definitions/network_metadata</td>
+<td>*</td>
+</tr>
+<tr>
+<td>spec</td>
+<td>#/definitions/network_resources</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>#/definitions/network_resources</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="response-kind">Response Kind</h2>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>The status of a REST API call. Only used when there is a failure to report.</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Name</td>
+<td>network_status</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>object</td>
+</tr>
+</tbody></table>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+<th>Read only?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_version</td>
+<td></td>
+<td>string</td>
+<td></td>
+<td>*</td>
+</tr>
+<tr>
+<td>code</td>
+<td>The HTTP error code</td>
+<td>integer</td>
+<td></td>
+<td>*</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Custom key-value details relevant to the status</td>
+<td>object (string)</td>
+<td></td>
+<td>*</td>
+</tr>
+<tr>
+<td>kind</td>
+<td>The kind name</td>
+<td>string</td>
+<td>network</td>
+<td>*</td>
+</tr>
+<tr>
+<td>message</td>
+<td>A sentence explaining the reason for the status</td>
+<td>string</td>
+<td></td>
+<td>*</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>One snake_case word</td>
+<td>string</td>
+<td></td>
+<td>*</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Only value possible is &ldquo;failure&rdquo;</td>
+<td>string</td>
+<td></td>
+<td>*</td>
+</tr>
+</tbody></table>
+
+<h2 id="network-metadata">Network metadata</h2>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>The network kind metadata</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Name</td>
+<td>network_metadata</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>object</td>
+</tr>
+</tbody></table>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+<th>Read only?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>last_update_time</td>
+<td>Time when network was last updated</td>
+<td>string</td>
+<td></td>
+<td>*</td>
+</tr>
+<tr>
+<td>kind</td>
+<td>The kind name</td>
+<td>string</td>
+<td>network</td>
+<td>*</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>network uuid</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>creation_time</td>
+<td>Time when network was created</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>account_reference</td>
+<td>See schema definition</td>
+<td>#/definitions/account_reference</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>owner_reference</td>
+<td>See schema definition</td>
+<td>#/definitions/user_reference</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>entity_version</td>
+<td>Monotonically increasing number</td>
+<td>integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>network name</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h1 id="patterns">Patterns</h1>
+
+<p>UUID: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$</p>
 
           <h1 id="status-codes">Status codes</h1>
 
