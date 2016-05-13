@@ -1,17 +1,17 @@
 # Networks
 
-## Modify network
+## Get details for a network
 
 ```python
 clusterURL = self.base_url + "/networks" + self.net_uuid
 print "Getting cluster information for cluster %s" % self.serverIpAddress
-serverResponse = self.session.put(clusterURL)
+serverResponse = self.session.get(clusterURL)
 return serverResponse.status_code, json.loads(serverResponse.text)
 ```
 
-### HTTP request
+### HTTP Request
 
-`PUT /networks/{uuid}`
+`GET /networks/{uuid}`
 
 ### Query parameters
 
@@ -26,18 +26,18 @@ Response Code | Meaning
 200 | Success
 default | Error schema: #/definitions/network_status
 
-## Get details for a network
+## Modify network
 
 ```python
 clusterURL = self.base_url + "/networks" + self.net_uuid
 print "Getting cluster information for cluster %s" % self.serverIpAddress
-serverResponse = self.session.get(clusterURL)
+serverResponse = self.session.put(clusterURL)
 return serverResponse.status_code, json.loads(serverResponse.text)
 ```
 
-### HTTP Request
+### HTTP request
 
-`GET /networks/{uuid}`
+`PUT /networks/{uuid}`
 
 ### Query parameters
 
