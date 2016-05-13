@@ -30,8 +30,6 @@ You can create an authorized session to a Nutanix cluster.
 > To authorize, use this code:
 
 ```python
-import kittn
-
 class TestRestApi():                
   def __init__(self):
     
