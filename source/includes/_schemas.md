@@ -1,11 +1,20 @@
 # Schemas
 
 ## Create network request
-
-| Description | Request to make a network
-| ----------- | -------------------------
-| Name | network
-| Type | object
+<table>
+	<tr>
+		<th>Description</th>
+		<td>Request to make a network</td>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<td>network</td>
+	</tr>
+	<tr>
+		<th>Type</th>
+		<td>object</td>
+	</tr>
+</table>
 
 ### Properties
 | Property | Type | Required?
@@ -16,11 +25,20 @@
 | status | #/definitions/network_resources | 
 
 ## Response Kind
-
-| Description | The status of a REST API call. Only used when there is a failure to report.
-| ----------- | ---------------
-| Name | network_status
-| Type | object
+<table>
+	<tr>
+		<th>Description</th>
+		<td>The status of a REST API call. Only used when there is a failure to report.</td>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<td>network_status</td>
+	</tr>
+	<tr>
+		<th>Type</th>
+		<td>object</td>
+	</tr>
+</table>
 
 ### Properties
 | Property | Description | Type | Default | Read only?
@@ -34,11 +52,20 @@
 | status | Only value possible is "failure" | string | | *
 
 ## Network metadata
-
-| Description | The network kind metadata
-| ----------- | ---------------
-| Name | network_metadata
-| Type | object
+<table>
+	<tr>
+		<th>Description</th>
+		<td>The network kind metadata</td>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<td>network_metadata</td>
+	</tr>
+	<tr>
+		<th>Type</th>
+		<td>object</td>
+	</tr>
+</table>
 
 ### Properties
 
