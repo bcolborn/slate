@@ -601,7 +601,8 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>You can download the sample response to this script at https://github.com/nutanix/Connection-viaREST/blob/master/api_python_authenticate_pd_sample_response.txt.</p>
 
 <ol>
-<li><p>Import the modules for the Python code. The following modules should be included in your script:</p>
+<li> Import the modules for the Python code. The following modules should be included in your script:</li>
+</ol>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -609,29 +610,34 @@ curl <span class="s2">"api_endpoint_here"</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
-</code></pre></li>
-<li><p>Authenticate cluster connection by defining the following parameters.
+</code></pre>
+
+<ol>
+<li> Authenticate cluster connection by defining the following parameters.
 Define the cluster IP address, user name, password, and base URL.
-The BASE_URL = &lsquo;https://%s:9440/PrismGateway/services/rest/v1/&rsquo; line sets up the REST services that are hosted in Prism Gateway.</p>
+The BASE_URL = &lsquo;https://%s:9440/PrismGateway/services/rest/v1/&rsquo; line sets up the REST services that are hosted in Prism Gateway.</li>
+</ol>
 <pre class="highlight python"><code><span class="k">class</span> <span class="nc">TestRestApi</span><span class="p">():</span>                
   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">serverIpAddress</span> <span class="o">=</span> <span class="s">"ip_address"</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s">"cluster_username"</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">"cluster_password"</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">"cluster_password"</span>
     <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s">'https://</span><span class="si">%</span><span class="s">s:9440/PrismGateway/services/rest/v1/'</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">BASE_URL</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">serverIpAddress</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-</code></pre></li>
-</ol>
+</code></pre>
 
-<p>- Replace ip_address with the cluster virtual IP address.
-    - Replace cluster_username with the cluster user name.
-    - Replace cluster_password with the cluster password.</p>
+<ul>
+<li>Replace ip_address with the cluster virtual IP address.</li>
+<li>Replace cluster_username with the cluster user name.</li>
+<li>Replace cluster_password with the cluster password.</li>
+</ul>
 
 <ol>
-<li><p>Create a REST client session for a server connection.
-If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.</p>
+<li> Create a REST client session for a server connection.
+If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.</li>
+</ol>
 <pre class="highlight python"><code><span class="k">def</span> <span class="nf">get_server_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
 
     <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
@@ -640,8 +646,7 @@ If using a self-signed certificate, disable the SSL certificate verification by 
     <span class="n">session</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
         <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json; charset=utf-8'</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">session</span>
-</code></pre></li>
-</ol>
+</code></pre>
 
       </div>
       <div class="dark-box">
