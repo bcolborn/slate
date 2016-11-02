@@ -588,6 +588,65 @@ curl <span class="s2">"api_endpoint_here"</span>
 </tr>
 </tbody></table>
 
+          <h1 id="protection-domain-tutorial-v2">Protection Domain Tutorial (v2)</h1>
+
+<p>This REST API Python tutorial shows you how to: define cluster connection, authenticate to a cluster, get cluster information, create a protection domain, find unprotected VMs, and add the unprotected VMs to a protection domain.</p>
+
+<h2 id="before-you-begin">Before you begin</h2>
+
+<p>Install Python library requests.</p>
+
+<p>You can download the completed script at https://github.com/nutanix/Connection-viaREST/blob/master/api_python_authenticate_pd.py.</p>
+
+<p>You can download the sample response to this script at https://github.com/nutanix/Connection-viaREST/blob/master/api_python_authenticate_pd_sample_response.txt.</p>
+
+<blockquote>
+<p>Import the modules for the Python code. The following modules should be included in your script:
+<code class="prettyprint">python
+import json
+import os
+import random
+import requests
+import sys
+import traceback
+import pprint
+</code>
+Authenticate cluster connection by defining the following parameters.
+Define the cluster IP address, user name, password, and base URL.
+The BASE_URL = &lsquo;https://%s:9440/PrismGateway/services/rest/v1/&rsquo; line sets up the REST services that are hosted in Prism Gateway.</p>
+</blockquote>
+<pre class="highlight python"><code><span class="k">class</span> <span class="nc">TestRestApi</span><span class="p">():</span>                
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">serverIpAddress</span> <span class="o">=</span> <span class="s">"ip_address"</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s">"cluster_username"</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">"cluster_password"</span>
+    <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s">'https://</span><span class="si">%</span><span class="s">s:9440/PrismGateway/services/rest/v1/'</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">BASE_URL</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">serverIpAddress</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_server_session</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<ul>
+<li>Replace ip_address with the cluster virtual IP address.</li>
+<li>Replace cluster_username with the cluster user name.</li>
+<li>Replace cluster_password with the cluster password.</li>
+</ul>
+
+<p>Create a REST client session for a server connection.
+If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.
+&ldquo;`python
+def get_server_session(self, username, password):</p>
+</blockquote>
+
+<p>session = requests.Session()
+    session.auth = (username, password)
+    session.verify = False<br>
+    session.headers.update(
+        {&#39;Content-Type&rsquo;: &#39;application/json; charset=utf-8&rsquo;})
+    return session
+&rdquo;`</p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
