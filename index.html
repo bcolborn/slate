@@ -631,17 +631,19 @@ curl <span class="s2">"api_endpoint_here"</span>
 
 <ol>
 <li> Import the modules for the Python code. The indicated modules should be included in your script:</li>
-<li> Authenticate cluster connection by defining the following parameters.
-Define the cluster IP address, user name, password, and base URL.
-The <code class="prettyprint">BASE_URL = &#39;https://%s:9440/PrismGateway/services/rest/v1/&#39;</code> line sets up the REST services that are hosted in Prism Gateway.
+<li><p>Authenticate cluster connection by defining the following parameters.</p>
+
+<p>Define the cluster IP address, user name, password, and base URL.</p>
+
+<p>The <code class="prettyprint">BASE_URL = &#39;https://%s:9440/PrismGateway/services/rest/v1/&#39;</code> line sets up the REST services that are hosted in Prism Gateway.</p>
 
 <ul>
 <li>Replace <code class="prettyprint">ip_address</code> with the cluster virtual IP address.</li>
 <li>Replace <code class="prettyprint">cluster_username</code> with the cluster user name.</li>
 <li>Replace <code class="prettyprint">cluster_password</code> with the cluster password.</li>
 </ul></li>
-<li> Create a REST client session for a server connection.
-If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.</li>
+<li><p>Create a REST client session for a server connection.
+If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.</p></li>
 </ol>
 
       </div>
