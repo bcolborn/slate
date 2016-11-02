@@ -601,17 +601,19 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>You can download the sample response to this script at https://github.com/nutanix/Connection-viaREST/blob/master/api_python_authenticate_pd_sample_response.txt.</p>
 
 <blockquote>
-<p>Import the modules for the Python code. The following modules should be included in your script:
-<code class="prettyprint">python
-import json
-import os
-import random
-import requests
-import sys
-import traceback
-import pprint
-</code>
-Authenticate cluster connection by defining the following parameters.
+<p>Import the modules for the Python code. The following modules should be included in your script:</p>
+</blockquote>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+</code></pre>
+
+<blockquote>
+<p>Authenticate cluster connection by defining the following parameters.
 Define the cluster IP address, user name, password, and base URL.
 The BASE_URL = &lsquo;https://%s:9440/PrismGateway/services/rest/v1/&rsquo; line sets up the REST services that are hosted in Prism Gateway.</p>
 </blockquote>
@@ -634,18 +636,17 @@ The BASE_URL = &lsquo;https://%s:9440/PrismGateway/services/rest/v1/&rsquo; line
 </ul>
 
 <p>Create a REST client session for a server connection.
-If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.
-&ldquo;`python
-def get_server_session(self, username, password):</p>
+If using a self-signed certificate, disable the SSL certificate verification by setting it to FALSE. Without disabling the SSL certificate verification, the script will not run on the interface.</p>
 </blockquote>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">get_server_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
 
-<p>session = requests.Session()
-    session.auth = (username, password)
-    session.verify = False<br>
-    session.headers.update(
-        {&#39;Content-Type&rsquo;: &#39;application/json; charset=utf-8&rsquo;})
-    return session
-&rdquo;`</p>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="bp">False</span>                                            
+    <span class="n">session</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json; charset=utf-8'</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">session</span>
+</code></pre>
 
       </div>
       <div class="dark-box">
